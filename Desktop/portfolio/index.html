@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramon Ariel Moreno — Portfolio 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F4F1EA',
+            'brutalist-black': '#000000',
+            'graffiti-red': '#E61C1C',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      background-color: #F4F1EA;
+      color: #000000;
+    }
+    body {
+      background-color: #F4F1EA;
+      color: #000000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .brutalist-box {
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px #000000;
+    }
+    .brutalist-button {
+      border: 3px solid #000000;
+      background-color: #E61C1C;
+      color: #FFFFFF;
+      font-weight: 900;
+      box-shadow: 4px 4px 0px #000000;
+      transition: all 0.1s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .brutalist-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000000;
+    }
+    .brutalist-button:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #000000;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F4F1EA] text-black p-4 md:p-10 selection:bg-[#E61C1C] selection:text-white">
+  
+  <!-- Streetwear / E-Commerce Drop Ticker Bar -->
+  <div class="border-4 border-black bg-black text-white py-2 px-4 mb-6 shadow-[4px_4px_0px_0px_#E61C1C] flex justify-between items-center font-mono text-xs uppercase tracking-widest overflow-visible relative">
+    <span class="text-[#E61C1C] font-black">● LANZAMIENTO EN VIVO 2026</span>
+    <span class="hidden sm:inline">// ARQUITECTURA DE SISTEMAS DE DISEÑO Y CONSTRUCCIÓN DE PRODUCTO // ACCESO GLOBAL</span>
+    <span class="bg-[#E61C1C] text-white px-3 py-1 font-bold border-2 border-black shadow-[2px_2px_0px_0px_#FFFFFF] rotate-2 inline-block">ESTADO: DISPONIBLE</span>
+  </div>
+
+  <!-- Header / Brand Nav -->
+  <header class="border-4 border-black bg-white p-6 mb-8 shadow-[8px_8px_0px_0px_#000000] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="font-mono text-xs uppercase bg-[#E61C1C] text-white px-2 py-1 inline-block font-black mb-2 border-2 border-black">
+        ARCHIVO UX STREETWEAR
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+        Ramon Ariel Moreno
+      </h1>
+    </div>
+    <div class="flex flex-wrap items-center gap-4 font-mono text-sm">
+      <div class="border-3 border-black bg-[#F4F1EA] px-4 py-2 font-black shadow-[3px_3px_0px_0px_#000000]">
+        BOLSA [0]
+      </div>
+      <a
+        href="mailto:ramon@example.com"
+        class="brutalist-button px-5 py-2 uppercase font-black text-sm no-underline inline-block"
+      >
+        CONSULTA_RÁPIDA ↗
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto space-y-12">
+    <!-- Hero Section / Collage Layout -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <!-- Main Hero Card -->
+      <div class="lg:col-span-8 bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative">
+        <div class="absolute -top-4 -right-4 bg-[#E61C1C] text-white font-mono text-xs font-black px-4 py-2 border-3 border-black shadow-[4px_4px_0px_0px_#000000] rotate-3 z-10">
+          LANZAMIENTO DESTACADO // 01
+        </div>
+        <div>
+          <span class="inline-block bg-black text-white font-mono text-xs px-3 py-1 mb-6 uppercase tracking-widest border-2 border-black">
+            UX/UI Designer &amp; Design Engineer / Product Builder
+          </span>
+          <p class="text-2xl md:text-4xl font-black leading-tight uppercase tracking-tight mb-6">
+            Diseño de interfaces, sistemas de diseño y desarrollo enfocado en producto.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t-4 border-black">
+          <a
+            href="#"
+            class="border-3 border-black bg-[#F4F1EA] hover:bg-black hover:text-white px-6 py-3 uppercase text-center font-black text-sm tracking-wider shadow-[4px_4px_0px_0px_#000000] transition-all no-underline"
+          >
+            VER CV / CURRICULUM
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            class="border-3 border-black bg-black text-white hover:bg-[#E61C1C] px-6 py-3 uppercase text-center font-black text-sm tracking-wider shadow-[4px_4px_0px_0px_#000000] transition-all no-underline"
+          >
+            REPO GITHUB ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Brutalist Profile Photo Placeholder -->
+      <div class="lg:col-span-4 bg-black text-[#F4F1EA] border-4 border-black p-6 shadow-[8px_8px_0px_0px_#E61C1C] flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute top-2 right-2 font-mono text-[10px] text-[#E61C1C] font-black border border-[#E61C1C] px-1">
+          FOTO_REF_FALTANTE
+        </div>
+        <div class="my-auto py-8 text-center border-2 border-dashed border-[#F4F1EA]/40 p-6 bg-neutral-900">
+          <div class="font-mono text-xs tracking-widest text-[#E61C1C] mb-2 font-bold">
+            [FOTO_DE_PERFIL]
+          </div>
+          <div class="text-xl font-black uppercase tracking-wider mb-2">
+            RAMON ARIEL MORENO
+          </div>
+          <div class="font-mono text-xs text-neutral-400">
+            // 34.6037° S, 58.3816° W
+          </div>
+        </div>
+        <div class="font-mono text-xs text-neutral-300 pt-4 border-t border-neutral-800 flex justify-between">
+          <span>EDICIÓN: 1/1</span>
+          <span class="text-[#E61C1C] font-bold">VERIFICADO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto / About Section -->
+    <section class="bg-white border-4 border-black p-8 md:p-10 shadow-[8px_8px_0px_0px_#000000] relative">
+      <div class="absolute -top-3 left-8 bg-[#E61C1C] text-white font-mono text-xs font-black px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_#000000] rotate-2 inline-block z-10">MANIFIESTO // ESPECIFICACIONES</div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mt-2">
+        <div class="md:col-span-4 font-mono text-2xl font-black uppercase tracking-tight">
+          &gt; FILOSOFÍA DE DISEÑO Y CÓDIGO
+        </div>
+        <div class="md:col-span-8 text-lg font-medium leading-relaxed border-l-4 border-black pl-6">
+          Diseñador UX/UI enfocado en evolucionar hacia Design Engineering y Product Building. Especializado en sistemas de diseño, tokens, prototipado e integración con código.
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section - Streetwear E-Commerce Grid -->
+    <section class="space-y-6">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-black pb-4">
+        <div>
+          <span class="font-mono text-xs bg-[#E61C1C] text-white px-2 py-1 font-bold uppercase">
+            CATÁLOGO // DROP 01
+          </span>
+          <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mt-2">
+            PROYECTOS DESTACADOS [3]
+          </h2>
+        </div>
+        <div class="font-mono text-xs font-bold bg-white border-2 border-black px-3 py-1 shadow-[3px_3px_0px_0px_#000000]">
+          ORDENAR POR: MAYOR IMPACTO
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative group hover:-translate-y-1 transition-transform">
+          <div class="absolute top-0 right-0 bg-black text-white font-mono text-xs font-black px-3 py-1 border-l-3 border-b-3 border-black">
+            SKU: RM-01
+          </div>
+          <div>
+            <div class="font-mono text-xs text-[#E61C1C] font-black mb-2">
+              ITEM 01 // LANZADO
+            </div>
+            <h3 class="text-2xl font-black uppercase mb-3 tracking-tight group-hover:text-[#E61C1C] transition-colors">
+              Sistema de Diseño y Arquitectura
+            </h3>
+            <p class="text-neutral-700 text-sm leading-relaxed mb-6 font-medium">
+              Sistema de diseño escalable con tokens tipográficos, componentes atómicos y documentación interactiva para productos digitales complejos.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">UX/UI Design</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">Frontend</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">Design Tokens</span>
+            </div>
+            <a
+              href="#"
+              class="block text-center bg-black text-white hover:bg-[#E61C1C] border-3 border-black py-3 font-mono text-xs font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000000] transition-colors no-underline"
+            >
+              INSPECCIONAR / VER →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative group hover:-translate-y-1 transition-transform">
+          <div class="absolute top-0 right-0 bg-black text-white font-mono text-xs font-black px-3 py-1 border-l-3 border-b-3 border-black">
+            SKU: RM-02
+          </div>
+          <div>
+            <div class="font-mono text-xs text-[#E61C1C] font-black mb-2">
+              ITEM 02 // LANZADO
+            </div>
+            <h3 class="text-2xl font-black uppercase mb-3 tracking-tight group-hover:text-[#E61C1C] transition-colors">
+              Desarrollo de Producto y Flujos
+            </h3>
+            <p class="text-neutral-700 text-sm leading-relaxed mb-6 font-medium">
+              Desarrollo de herramientas de productividad y flujos de trabajo automatizados para equipos de diseño y desarrollo.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">Product Design</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">System Architecture</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">React</span>
+            </div>
+            <a
+              href="#"
+              class="block text-center bg-black text-white hover:bg-[#E61C1C] border-3 border-black py-3 font-mono text-xs font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000000] transition-colors no-underline"
+            >
+              INSPECCIONAR / VER →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative group hover:-translate-y-1 transition-transform">
+          <div class="absolute top-0 right-0 bg-black text-white font-mono text-xs font-black px-3 py-1 border-l-3 border-b-3 border-black">
+            SKU: RM-03
+          </div>
+          <div>
+            <div class="font-mono text-xs text-[#E61C1C] font-black mb-2">
+              ITEM 03 // LANZADO
+            </div>
+            <h3 class="text-2xl font-black uppercase mb-3 tracking-tight group-hover:text-[#E61C1C] transition-colors">
+              Motor de Prototipado
+            </h3>
+            <p class="text-neutral-700 text-sm leading-relaxed mb-6 font-medium">
+              Prototipado rápido de interfaces de alta fidelidad con microinteracciones y validación temprana de usabilidad.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">Interface Design</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">Prototyping</span>
+              <span class="text-xs font-mono font-black bg-[#F4F1EA] border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_#000000]">TypeScript</span>
+            </div>
+            <a
+              href="#"
+              class="block text-center bg-black text-white hover:bg-[#E61C1C] border-3 border-black py-3 font-mono text-xs font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000000] transition-colors no-underline"
+            >
+              INSPECCIONAR / VER →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / E-Commerce Checkout Section -->
+    <section class="bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_#000000] mb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="font-mono text-xs bg-[#E61C1C] text-white px-3 py-1 uppercase font-black border-2 border-black shadow-[2px_2px_0px_0px_#000000] rotate-2 inline-block">CHECKOUT // CONEXIÓN DIRECTA</span>
+          <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight mt-3 mb-4">
+            ¿LISTO PARA COLABORAR?
+          </h2>
+          <p class="text-neutral-700 text-base font-medium">
+            Disponible para sistemas de diseño, arquitectura y construcción de productos de alto rendimiento.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-end">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            class="border-3 border-black bg-[#F4F1EA] hover:bg-black hover:text-white px-6 py-3 font-mono text-sm font-black uppercase text-center shadow-[4px_4px_0px_0px_#000000] no-underline transition-all"
+          >
+            LINKEDIN ↗
+          </a>
+          <a
+            href="mailto:ramon@example.com"
+            class="brutalist-button px-6 py-3 font-mono text-sm uppercase text-center no-underline"
+          >
+            ENVIAR EMAIL
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto border-t-4 border-black pt-6 pb-12 flex flex-col md:flex-row justify-between items-center font-mono text-xs gap-4">
+    <div>© 2026 Ramon Ariel Moreno. TODOS LOS DERECHOS RESERVADOS.</div>
+    <div class="flex gap-4 font-bold">
+      <span>PORTFOLIO_URBANO_STREETWEAR</span>
+      <span class="text-[#E61C1C]">// HTML INDEPENDIENTE + TAILWIND CDN</span>
+    </div>
+  </footer>
+
+</body>
+</html>
