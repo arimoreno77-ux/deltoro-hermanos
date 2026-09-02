@@ -51,31 +51,67 @@
       transform: translate(2px, 2px);
       box-shadow: 2px 2px 0px #000000;
     }
+    @keyframes slideFromTop { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes slideFromLeft { 0% { opacity: 0; transform: translateX(-30px); } 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes slideFromRight { 0% { opacity: 0; transform: translateX(30px); } 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes slideFromBottom { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    .anim-top { animation: slideFromTop 0.5s ease-out forwards; }
+    .anim-left { animation: slideFromLeft 0.6s ease-out 0.2s forwards; opacity: 0; }
+    .anim-bottom { animation: slideFromBottom 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+    .anim-right { animation: slideFromRight 0.6s ease-out 0.6s forwards; opacity: 0; }
+    @keyframes slideFromBottomRightDiagonal { 0% { opacity: 0; transform: translate(50px, 50px); } 100% { opacity: 1; transform: translate(0, 0); } }
+    .anim-diagonal-photo { animation: slideFromBottomRightDiagonal 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; opacity: 0; }
+    @keyframes marqueeLeft {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marqueeRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+    }
+    .marquee-track-left {
+      display: inline-flex;
+      animation: marqueeLeft 22s linear infinite;
+    }
+    .marquee-track-right {
+      display: inline-flex;
+      animation: marqueeRight 28s linear infinite;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-[#F4F1EA] text-black p-4 md:p-10 selection:bg-[#E61C1C] selection:text-white">
   
   <!-- Streetwear / E-Commerce Drop Ticker Bar -->
-  <div class="border-4 border-black bg-black text-white py-2 px-4 mb-6 shadow-[4px_4px_0px_0px_#E61C1C] flex justify-between items-center font-mono text-xs uppercase tracking-widest overflow-visible relative">
-    <span class="text-[#E61C1C] font-black">● LANZAMIENTO EN VIVO 2026</span>
-    <span class="hidden sm:inline">// ARQUITECTURA DE SISTEMAS DE DISEÑO Y CONSTRUCCIÓN DE PRODUCTO // ACCESO GLOBAL</span>
+  <div class="anim-top border-4 border-black bg-black text-white py-2 px-4 mb-6 shadow-[4px_4px_0px_0px_#E61C1C] flex justify-between items-center font-mono text-xs uppercase tracking-widest overflow-visible relative">
+    <span class="text-[#E61C1C] font-black">● PORTFOLIO ACTIVO 2026</span>
+    <span class="hidden sm:inline">// DISEÑO Y CONSTRUCCIÓN DE PRODUCTO // ACCESO GLOBAL</span>
     <span class="bg-[#E61C1C] text-white px-3 py-1 font-bold border-2 border-black shadow-[2px_2px_0px_0px_#FFFFFF] rotate-2 inline-block">ESTADO: DISPONIBLE</span>
   </div>
 
   <!-- Header / Brand Nav -->
-  <header class="border-4 border-black bg-white p-6 mb-8 shadow-[8px_8px_0px_0px_#000000] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+  <header class="anim-left border-4 border-black bg-white p-6 mb-8 shadow-[8px_8px_0px_0px_#000000] flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
     <div>
       <div class="font-mono text-xs uppercase bg-[#E61C1C] text-white px-2 py-1 inline-block font-black mb-2 border-2 border-black">
-        ARCHIVO UX STREETWEAR
+        LABORATORIO DE PROYECTOS
       </div>
       <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">
         Ramon Ariel Moreno
       </h1>
     </div>
     <div class="flex flex-wrap items-center gap-4 font-mono text-sm">
-      <div class="border-3 border-black bg-[#F4F1EA] px-4 py-2 font-black shadow-[3px_3px_0px_0px_#000000]">
-        BOLSA [0]
-      </div>
+      <a
+        href="./CONTENT.md"
+        target="_blank"
+        rel="noreferrer"
+        class="border-3 border-black bg-[#F4F1EA] px-4 py-2 font-black shadow-[3px_3px_0px_0px_#000000] cursor-pointer transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 no-underline inline-block text-black"
+      >
+        CONTEXT.MD [AI]
+      </a>
       <a
         href="mailto:ramon@example.com"
         class="brutalist-button px-5 py-2 uppercase font-black text-sm no-underline inline-block"
@@ -89,16 +125,16 @@
     <!-- Hero Section / Collage Layout -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
       <!-- Main Hero Card -->
-      <div class="lg:col-span-8 bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative">
+      <div class="anim-bottom lg:col-span-8 bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_#000000] flex flex-col justify-between relative">
         <div class="absolute -top-4 -right-4 bg-[#E61C1C] text-white font-mono text-xs font-black px-4 py-2 border-3 border-black shadow-[4px_4px_0px_0px_#000000] rotate-3 z-10">
-          LANZAMIENTO DESTACADO // 01
+          VISIÓN DE PRODUCTO // 01
         </div>
         <div>
           <span class="inline-block bg-black text-white font-mono text-xs px-3 py-1 mb-6 uppercase tracking-widest border-2 border-black">
             UX/UI Designer &amp; Design Engineer / Product Builder
           </span>
           <p class="text-2xl md:text-4xl font-black leading-tight uppercase tracking-tight mb-6">
-            Diseño de interfaces, sistemas de diseño y desarrollo enfocado en producto.
+            DISEÑO COSAS QUE TIENEN UNA RAZÓN PARA EXISTIR: PROBLEMAS REALES, PERSONAS REALES Y EL CRITERIO PARA CREAR CON ALMA.
           </p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t-4 border-black">
@@ -120,7 +156,7 @@
       </div>
 
       <!-- Brutalist Profile Photo Placeholder -->
-      <div class="lg:col-span-4 bg-black text-[#F4F1EA] border-4 border-black p-6 shadow-[8px_8px_0px_0px_#E61C1C] flex flex-col justify-between relative overflow-hidden">
+      <div class="anim-diagonal-photo lg:col-span-4 bg-black text-[#F4F1EA] border-4 border-black p-6 shadow-[12px_12px_0px_0px_#E61C1C] flex flex-col justify-between relative overflow-hidden">
         <div class="absolute top-2 right-2 font-mono text-[10px] text-[#E61C1C] font-black border border-[#E61C1C] px-1">
           FOTO_REF_FALTANTE
         </div>
@@ -147,13 +183,33 @@
       <div class="absolute -top-3 left-8 bg-[#E61C1C] text-white font-mono text-xs font-black px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_#000000] rotate-2 inline-block z-10">MANIFIESTO // ESPECIFICACIONES</div>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mt-2">
         <div class="md:col-span-4 font-mono text-2xl font-black uppercase tracking-tight">
-          &gt; FILOSOFÍA DE DISEÑO Y CÓDIGO
+          &gt; FILOSOFÍA DE DISEÑO, CÓDIGO Y ALMA
         </div>
         <div class="md:col-span-8 text-lg font-medium leading-relaxed border-l-4 border-black pl-6">
-          Diseñador UX/UI enfocado en evolucionar hacia Design Engineering y Product Building. Especializado en sistemas de diseño, tokens, prototipado e integración con código.
+          Diseñador UX/UI enfocado en evolucionar hacia Design Engineering y Product Building. Especializado en escuchar, tener empatía y trabajar con amor.
         </div>
       </div>
     </section>
+
+    <!-- Marquee Tickers (Full Width, No Gap) -->
+    <div class="my-12 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex flex-col gap-0 p-0 m-0 border-t-4 border-b-4 border-black">
+      <div class="bg-black text-white py-3 overflow-hidden whitespace-nowrap flex marquee-container border-b-4 border-black">
+        <div class="marquee-track-left font-mono text-sm md:text-base font-black tracking-widest uppercase">
+          <span class="mx-6">✦ DESIGN SYSTEMS ✦ VIBE CODING ✦ PRODUCT BUILDING ✦ UX/UI DESIGN ✦</span>
+          <span class="mx-6">✦ DESIGN SYSTEMS ✦ VIBE CODING ✦ PRODUCT BUILDING ✦ UX/UI DESIGN ✦</span>
+          <span class="mx-6">✦ DESIGN SYSTEMS ✦ VIBE CODING ✦ PRODUCT BUILDING ✦ UX/UI DESIGN ✦</span>
+          <span class="mx-6">✦ DESIGN SYSTEMS ✦ VIBE CODING ✦ PRODUCT BUILDING ✦ UX/UI DESIGN ✦</span>
+        </div>
+      </div>
+      <div class="bg-[#E61C1C] text-white py-2.5 overflow-hidden whitespace-nowrap flex marquee-container">
+        <div class="marquee-track-right font-mono text-xs md:text-sm font-black tracking-widest uppercase">
+          <span class="mx-6">► MADE IN ARGENTINA_BSAS_24/7/365 ►</span>
+          <span class="mx-6">► MADE IN ARGENTINA_BSAS_24/7/365 ►</span>
+          <span class="mx-6">► MADE IN ARGENTINA_BSAS_24/7/365 ►</span>
+          <span class="mx-6">► MADE IN ARGENTINA_BSAS_24/7/365 ►</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Projects Section - Streetwear E-Commerce Grid -->
     <section class="space-y-6">
@@ -306,6 +362,51 @@
       <span class="text-[#E61C1C]">// HTML INDEPENDIENTE + TAILWIND CDN</span>
     </div>
   </footer>
+
+  <!-- Toasty! Widget -->
+  <div id="toasty-widget" class="fixed bottom-0 right-0 z-50 pointer-events-auto cursor-pointer" style="transform: translate(100%, 100%); transition: transform 0.45s cubic-bezier(0.3, 1.3, 0.3, 1);">
+    <div class="relative">
+      <div id="toasty-bubble" class="absolute -top-3 left-4 bg-[#E61C1C] text-white font-black text-xs uppercase px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_#000000] rotate-[-6deg] opacity-0 transition-opacity">
+        TOASTY!
+      </div>
+      <img src="ramon.png" alt="Ramon Toasty" class="h-[160px] w-auto object-contain select-none" />
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const widget = document.getElementById('toasty-widget');
+      const bubble = document.getElementById('toasty-bubble');
+      let hideTimeout = null;
+
+      function showToasty() {
+        widget.style.transform = 'translate(0, 0)';
+        if (bubble) bubble.style.opacity = '1';
+        
+        if (hideTimeout) clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+          hideToasty();
+        }, 1500);
+      }
+
+      function hideToasty() {
+        if (hideTimeout) clearTimeout(hideTimeout);
+        widget.style.transform = 'translate(100%, 100%)';
+        if (bubble) bubble.style.opacity = '0';
+      }
+
+      widget.addEventListener('click', () => {
+        hideToasty();
+      });
+
+      setTimeout(() => {
+        showToasty();
+        setInterval(() => {
+          showToasty();
+        }, 25000);
+      }, 3000);
+    });
+  </script>
 
 </body>
 </html>
