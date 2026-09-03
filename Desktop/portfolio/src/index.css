@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F4F1EA;
+  --color-brutalist-black: #000000;
+  --color-graffiti-red: #E61C1C;
+}
+
+:root {
+  background-color: #F4F1EA;
+  color: #000000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F4F1EA;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* Brutalist borders and sharp shadows */
+.brutalist-box {
+  border: 3px solid #000000;
+  box-shadow: 6px 6px 0px #000000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutalist-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.brutalist-button {
+  border: 3px solid #000000;
+  background-color: #E61C1C;
+  color: #FFFFFF;
+  font-weight: 900;
+  box-shadow: 4px 4px 0px #000000;
+  transition: all 0.1s ease;
+}
+
+.brutalist-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.brutalist-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Torn paper / collage effect simulation */
+.torn-edge {
+  position: relative;
+}
+.torn-edge::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(45deg, #000, #000 10px, transparent 10px, transparent 20px);
+  opacity: 0.1;
+}
