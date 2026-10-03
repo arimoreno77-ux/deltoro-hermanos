@@ -1,0 +1,58 @@
+[
+  {
+    "id": "izajes",
+    "title": "Izajes y Elevación de Cargas",
+    "category": "Industrial",
+    "shortDesc": "Maniobras especializadas con grúas y equipos de gran porte para elevación de estructuras y maquinaria.",
+    "description": "Servicio profesional de izajes y elevación de cargas pesadas en general. Contamos con equipos de gran porte, operadores certificados y estrictos protocolos de seguridad para estructuras metálicas, equipos industriales, contenedores y materiales en altura.",
+    "features": [
+      "Grúas y equipos hidráulicos de gran porte",
+      "Operadores altamente certificados y con experiencia",
+      "Estrictos protocolos de seguridad operativa",
+      "Planificación y logística de maniobras complejas"
+    ],
+    "icon": "Crane"
+  },
+  {
+    "id": "mudanzas-industriales",
+    "title": "Mudanzas Industriales",
+    "category": "Industrial & Corporativo",
+    "shortDesc": "Traslado integral de plantas, líneas de producción y maquinaria pesada con logística especializada.",
+    "description": "Soluciones logísticas a gran escala para el sector industrial. Nos encargamos del traslado de maquinaria pesada, componentes de plantas y equipos complejos con la máxima seguridad y eficiencia operativa.",
+    "features": [
+      "Traslado de maquinaria pesada y galpones",
+      "Logística coordinada para minimizar tiempos de inactividad",
+      "Vehículos y camiones de gran capacidad",
+      "Seguro de carga y cobertura total"
+    ],
+    "icon": "Factory"
+  },
+  {
+    "id": "mudanzas-oficinas",
+    "title": "Mudanzas de Oficinas",
+    "category": "Corporativo",
+    "shortDesc": "Reubicación corporativa eficiente: mobiliario, servidores, puestos de trabajo y archivos.",
+    "description": "Especialistas en mudanzas corporativas y de oficinas. Minimizamos el tiempo fuera de servicio de su empresa mediante una planificación rigurosa, etiquetado, embalaje especializado y transporte seguro de tecnología y mobiliario.",
+    "features": [
+      "Desarme y armado de puestos de trabajo",
+      "Protección especial para equipos informáticos y servidores",
+      "Coordinación de horarios (fines de semana y nocturnos)",
+      "Inventario detallado de bienes"
+    ],
+    "icon": "Building2"
+  },
+  {
+    "id": "mudanzas-familiares",
+    "title": "Mudanzas Familiares",
+    "category": "Residencial",
+    "shortDesc": "Traslados residenciales seguros y confiables con personal cuidadoso y unidades equipadas.",
+    "description": "Mudanzas hogareñas con el respaldo y la confianza de una empresa familiar con trayectoria. Cuidamos cada pertenencia como si fuera nuestra, ofreciendo embalaje profesional, operarios capacitados y flota moderna.",
+    "features": [
+      "Embalaje y protección de muebles y vajilla",
+      "Personal honesto, capacitado y de confianza",
+      "Camiones cerrados y equipados con mantas de protección",
+      "Puntualidad y cumplimiento garantizado"
+    ],
+    "icon": "Home"
+  }
+]
