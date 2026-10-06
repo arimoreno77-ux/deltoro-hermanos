@@ -111,23 +111,25 @@ export default function HudHero() {
 
               {/* Taut Steel Cable & Counter-Rotated Vertical Hook Block */}
               <g transform={`rotate(${-boomAngle}, 210, 172)`}>
-                {/* Taut Vertical Steel Cable */}
-                <line x1="210" y1="172" x2="210" y2="290" stroke="#D7B86C" strokeWidth="3" />
-                
-                {/* Sheave / Hook Block */}
-                <rect x="195" y="290" width="30" height="25" rx="4" fill="#111827" stroke="#D7B86C" strokeWidth="2.5" className="drop-shadow-[0_0_12px_#D7B86C]" />
-                <circle cx="210" cy="302.5" r="5" fill="#D7B86C" />
+                <g className="animate-hook-initial-swing">
+                  {/* Taut Vertical Steel Cable */}
+                  <line x1="210" y1="172" x2="210" y2="290" stroke="#D7B86C" strokeWidth="3" />
+                  
+                  {/* Sheave / Hook Block */}
+                  <rect x="195" y="290" width="30" height="25" rx="4" fill="#111827" stroke="#D7B86C" strokeWidth="2.5" className="drop-shadow-[0_0_12px_#D7B86C]" />
+                  <circle cx="210" cy="302.5" r="5" fill="#D7B86C" />
 
-                {/* Replaced Hook with gancho-removebg-preview.png image */}
-                <image 
-                  href="./images/gancho-removebg-preview.png" 
-                  x="185" 
-                  y="312" 
-                  width="50" 
-                  height="50" 
-                  preserveAspectRatio="xMidYMid meet"
-                  className="drop-shadow-[0_0_10px_#D7B86C]"
-                />
+                  {/* Replaced Hook with gancho-removebg-preview.png image */}
+                  <image 
+                    href="./images/gancho-removebg-preview.png" 
+                    x="185" 
+                    y="312" 
+                    width="50" 
+                    height="50" 
+                    preserveAspectRatio="xMidYMid meet"
+                    className="drop-shadow-[0_0_10px_#D7B86C]"
+                  />
+                </g>
               </g>
 
             </svg>

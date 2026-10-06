@@ -82,3 +82,26 @@
 .animate-crane-slide-up {
   animation: craneSlideUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
+
+@keyframes hookInitialSwing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-hook-initial-swing {
+  animation: hookInitialSwing 1.2s ease-in-out 1.8s forwards;
+  transform-origin: 210px 172px;
+}
