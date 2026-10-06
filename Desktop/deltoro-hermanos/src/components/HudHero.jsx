@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 export default function HudHero() {
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const [count3, setCount3] = useState(0);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +19,53 @@ export default function HudHero() {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => {
+      const startTime = performance.now();
+      const duration = 1100;
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCount1(Math.round(ease * 100));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }, 150);
+
+    const t2 = setTimeout(() => {
+      const startTime = performance.now();
+      const duration = 900;
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCount2(Math.round(ease * 24));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }, 300);
+
+    const t3 = setTimeout(() => {
+      const startTime = performance.now();
+      const duration = 1100;
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCount3(Math.round(ease * 100));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }, 450);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, []);
 
   // Direct, butter-smooth proportional rotation for crane boom
@@ -59,15 +109,15 @@ export default function HudHero() {
           {/* Technical HUD Stats Footer */}
           <div className="grid grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-gray-800 font-mono text-xs">
             <div className="flex flex-col items-center lg:items-start space-y-1.5 animate-metric-1">
-              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">100t+</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">{count1}t+</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Capacidad Izaje</span>
             </div>
             <div className="flex flex-col items-center lg:items-start space-y-1.5 animate-metric-2">
-              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">24/7</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">{count2}/7</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Monitoreo Activo</span>
             </div>
             <div className="flex flex-col items-center lg:items-start space-y-1.5 animate-metric-3">
-              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">100%</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">{count3}%</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Seguridad Certificada</span>
             </div>
           </div>
