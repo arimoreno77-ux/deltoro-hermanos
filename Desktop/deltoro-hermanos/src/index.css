@@ -46,3 +46,39 @@
   image-rendering: crisp-edges;
   display: block;
 }
+
+@keyframes breathingGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(4, 88, 72, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(215, 184, 108, 0.18);
+  }
+}
+
+.animate-breathing-glow {
+  animation: breathingGlow 5.5s infinite ease-in-out;
+}
+
+@keyframes craneSlideUp {
+  0% {
+    transform: translateY(140px) translateX(80px);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(12px) translateX(6px);
+    opacity: 0.9;
+  }
+  80% {
+    transform: translateY(16px) translateX(8px);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-crane-slide-up {
+  animation: craneSlideUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}

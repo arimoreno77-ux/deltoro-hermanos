@@ -18,7 +18,7 @@ export default function HudHero() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Direct, butter-smooth proportional rotation
+  // Direct, butter-smooth proportional rotation for crane boom
   const boomAngle = mousePos.x * 22 - mousePos.y * 14;
 
   return (
@@ -59,15 +59,15 @@ export default function HudHero() {
           {/* Technical HUD Stats Footer */}
           <div className="grid grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-gray-800 font-mono text-xs">
             <div className="flex flex-col items-center lg:items-start space-y-1.5">
-              <span className="text-[#D7B86C] font-bold text-[1.62rem] leading-tight">100t+</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">100t+</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Capacidad Izaje</span>
             </div>
             <div className="flex flex-col items-center lg:items-start space-y-1.5">
-              <span className="text-[#D7B86C] font-bold text-[1.62rem] leading-tight">24/7</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">24/7</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Monitoreo Activo</span>
             </div>
             <div className="flex flex-col items-center lg:items-start space-y-1.5">
-              <span className="text-[#D7B86C] font-bold text-[1.62rem] leading-tight">100%</span>
+              <span className="text-[#D7B86C] font-bold text-[1.95rem] leading-tight">100%</span>
               <span className="text-gray-400 text-[0.9075rem] leading-snug">Seguridad Certificada</span>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function HudHero() {
         </div>
 
         {/* Right Column: Telescopic Crane Boom overlapping with brutalist title */}
-        <div className="lg:col-span-4 relative h-96 flex items-center justify-end overflow-visible pointer-events-none -ml-16 lg:-ml-32 z-30">
+        <div className="lg:col-span-4 relative h-96 flex items-center justify-end overflow-visible pointer-events-none -ml-16 lg:-ml-32 z-30 animate-crane-slide-up">
           
           {/* SVG Telescopic Boom anchored off-screen bottom-right */}
           <div className="absolute -bottom-20 -right-20 w-[600px] h-[600px] flex items-end justify-end pointer-events-none">

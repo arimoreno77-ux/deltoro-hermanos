@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "dev": {
+      "description": "Inicia el servidor de desarrollo local para previsualizar la web",
+      "template": "npm run dev"
+    },
+    "preview": {
+      "description": "Previsualiza la build estática generada en /dist",
+      "template": "npm run preview"
+    }
+  }
+}
