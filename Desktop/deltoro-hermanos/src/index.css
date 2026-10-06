@@ -105,3 +105,29 @@
   animation: hookInitialSwing 1.2s ease-in-out 1.8s forwards;
   transform-origin: 210px 172px;
 }
+
+@keyframes metricSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-metric-1 {
+  animation: metricSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-metric-2 {
+  animation: metricSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-metric-3 {
+  animation: metricSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+  opacity: 0;
+}
