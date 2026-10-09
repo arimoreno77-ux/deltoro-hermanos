@@ -1,6 +1,69 @@
+import { useState, useEffect, useRef } from 'react';
+
+const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/-[]&";
+
+function decipherElement(el, targetText, duration = 400) {
+  if (!el) return;
+  const startTime = performance.now();
+  const len = targetText.length;
+
+  const update = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+
+    let result = "";
+    for (let i = 0; i < len; i++) {
+      const charTargetProgress = (i + 1) / len;
+      const threshold = charTargetProgress * 0.85;
+
+      if (progress === 1 || ease >= 1 || (progress > threshold && Math.random() < (progress - threshold) / (1 - threshold))) {
+        result += targetText[i];
+      } else {
+        result += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+
+    el.textContent = result;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = targetText;
+    }
+  };
+
+  requestAnimationFrame(update);
+}
+
 export default function About() {
+  const [isEnglish, setIsEnglish] = useState(true);
+  const upperRef = useRef(null);
+  const lowerRef = useRef(null);
+
+  // 12-second language toggle interval
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsEnglish((prev) => !prev);
+    }, 12000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Trigger text decipher on language change
+  useEffect(() => {
+    const upperTarget = isEnglish
+      ? "[DELTORO_HERMANOS // CORPORATE_HERITAGE_V1.0 — FOUNDATION_&_VALUES]"
+      : "[DELTORO_HERMANOS // HERENCIA_CORPORATIVA_V1.0 — FUNDAMENTOS_Y_VALORES]";
+    decipherElement(upperRef.current, upperTarget);
+
+    const lowerTarget = isEnglish
+      ? "[TRACK_RECORD // DECADES_OF_EXPERIENCE — SAFETY_COMMITMENT]"
+      : "[TRAYECTORIA // DECADAS_DE_EXPERIENCIA — COMPROMISO_DE_SEGURIDAD]";
+    decipherElement(lowerRef.current, lowerTarget);
+  }, [isEnglish]);
+
   return (
-    <section id="trayectoria" className="relative py-32 sm:py-40 bg-gradient-to-b from-[#0A0A0A] to-[#111827] border-b border-gray-800 overflow-hidden">
+    <section id="trayectoria" className="relative py-32 sm:py-40 bg-[#0A0A0A] border-b border-gray-800 overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden z-0"
@@ -43,11 +106,23 @@ export default function About() {
         
         {/* Intro text / Header */}
         <div className="max-w-3xl mx-auto space-y-6 text-center">
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight">
-            Trayectoria y <span className="text-[#D7B86C]">compromiso familiar</span>
+          <div ref={upperRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mb-2">
+            {isEnglish
+              ? "[DELTORO_HERMANOS // CORPORATE_HERITAGE_V1.0 — FOUNDATION_&_VALUES]"
+              : "[DELTORO_HERMANOS // HERENCIA_CORPORATIVA_V1.0 — FUNDAMENTOS_Y_VALORES]"}
+          </div>
+
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight">
+            <span className="text-white">Trayectoria</span> <span className="text-[#D7B86C]">y Compromiso</span>
           </h2>
 
-          <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-sans">
+          <div ref={lowerRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mt-2 mb-4">
+            {isEnglish
+              ? "[TRACK_RECORD // DECADES_OF_EXPERIENCE — SAFETY_COMMITMENT]"
+              : "[TRAYECTORIA // DECADAS_DE_EXPERIENCIA — COMPROMISO_DE_SEGURIDAD]"}
+          </div>
+
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-sans pt-2">
             En <strong className="text-white">Deltoro Hermanos</strong> llevamos años consolidándonos como un referente ineludible en el rubro de izajes, elevación de cargas pesadas y mudanzas integrales. Nuestra impronta familiar garantiza honestidad, cercanía y un trato personalizado en cada operación.
           </p>
 

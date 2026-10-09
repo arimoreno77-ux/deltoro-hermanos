@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import servicesData from '../data/services.json';
 import { Truck, Factory, Building2, Home, ArrowRight } from 'lucide-react';
 
@@ -8,11 +9,106 @@ const iconWatermarkMap = {
   Home: <Home className="w-20 h-20 text-[#045848]" />,
 };
 
+const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/-[]";
+
+function decipherElement(el, targetText, duration = 400) {
+  if (!el) return;
+  const startTime = performance.now();
+  const len = targetText.length;
+
+  const update = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+
+    let result = "";
+    for (let i = 0; i < len; i++) {
+      const charTargetProgress = (i + 1) / len;
+      const threshold = charTargetProgress * 0.85;
+
+      if (progress === 1 || ease >= 1 || (progress > threshold && Math.random() < (progress - threshold) / (1 - threshold))) {
+        result += targetText[i];
+      } else {
+        result += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+
+    el.textContent = result;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = targetText;
+    }
+  };
+
+  requestAnimationFrame(update);
+}
+
 export default function Services() {
   const whatsappNumber = "5491100000000";
+  const [isEnglish, setIsEnglish] = useState(true);
+  const [countVal, setCountVal] = useState(0);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  // Ref for header decipher target
+  const headerRef = useRef(null);
+
+  // 12-second language toggle interval for header
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsEnglish((prev) => !prev);
+    }, 12000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Trigger text decipher on language change for header
+  useEffect(() => {
+    const headerTarget = isEnglish
+      ? "[DELTORO_HERMANOS // SPECIALIZED_SERVICES_V1.0 — HEAVY_LIFT_LOGISTICS]"
+      : "[DELTORO_HERMANOS // SERVICIOS_ESPECIALIZADOS_V1.0 — LOGISTICA_DE_IZAJE]";
+    decipherElement(headerRef.current, headerTarget);
+  }, [isEnglish]);
+
+  // IntersectionObserver for count-up animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+            const startTime = performance.now();
+            const duration = 1200;
+            const animateCount = (currentTime) => {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const ease = 1 - Math.pow(1 - progress, 3);
+              setCountVal(Math.round(ease * 4));
+              if (progress < 1) {
+                requestAnimationFrame(animateCount);
+              }
+            };
+            requestAnimationFrame(animateCount);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section id="servicios" className="py-24 sm:py-32 bg-[#0A0A0A] relative border-y border-gray-800 overflow-hidden">
+    <section ref={sectionRef} id="servicios" className="py-24 sm:py-32 bg-[#0A0A0A] relative border-y border-gray-800 overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden z-0"
@@ -59,9 +155,17 @@ export default function Services() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <div ref={headerRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mb-2">
+            {isEnglish
+              ? "[DELTORO_HERMANOS // SPECIALIZED_SERVICES_V1.0 — HEAVY_LIFT_LOGISTICS]"
+              : "[DELTORO_HERMANOS // SERVICIOS_ESPECIALIZADOS_V1.0 — LOGISTICA_DE_IZAJE]"}
+          </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight">
             Servicios <span className="text-[#D7B86C]">Especializados</span>
           </h2>
+          <div className="mt-2 font-mono text-xs text-[#D7B86C]/60">
+            [ACTIVE_MODULES: {countVal}/4 LOADED]
+          </div>
         </div>
 
         {/* Services Grid with Technical Cell Border Lines */}
@@ -72,7 +176,7 @@ export default function Services() {
             return (
               <div
                 key={service.id}
-                className="bg-[#0A0A0A] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group hover:bg-[#111827]/50"
+                className="bg-[#0A0A0A] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group hover:bg-gray-900/60"
               >
                 {/* Background Watermark Icon in Top-Right Corner */}
                 <div className="absolute top-0 right-0 pointer-events-none z-0 opacity-15 translate-x-8 -translate-y-8 group-hover:translate-x-0 group-hover:translate-y-2 group-hover:opacity-30 transition-all duration-500 ease-out">

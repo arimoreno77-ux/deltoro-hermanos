@@ -86,7 +86,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#111827] border-b border-[#045848] px-4 pt-4 pb-6 space-y-2 shadow-2xl font-mono text-sm">
+        <div className="md:hidden bg-[#0A0A0A] border-b border-[#045848] px-4 pt-4 pb-6 space-y-2 shadow-2xl font-mono text-sm">
           <a
             href="#servicios"
             onClick={() => setIsOpen(false)}

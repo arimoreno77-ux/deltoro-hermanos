@@ -5,7 +5,10 @@
     "category": "Industrial",
     "shortDesc": "Maniobras especializadas con grúas y equipos de gran porte para elevación de estructuras y maquinaria.",
     "description": "Servicio profesional de izajes pesados para estructuras metálicas, equipos industriales y contenedores. Contamos con grúas e hidráulicos de gran porte, operadores certificados, protocolos de seguridad operativa y planificación de maniobras complejas.",
-    "icon": "Crane"
+    "icon": "Crane",
+    "num": 1,
+    "hudTagEn": "[SPEC_01 // HEAVY_LIFTING — CERTIFIED_OPERATORS // SAFETY_PROTOCOLS]",
+    "hudTagEs": "[ESPEC_01 // IZAJES_PESADOS — OPERADORES_CERTIFICADOS // PROTOCOLOS_DE_SEGURIDAD]"
   },
   {
     "id": "mudanzas-industriales",
@@ -13,7 +16,10 @@
     "category": "Industrial & Corporativo",
     "shortDesc": "Traslado integral de plantas, líneas de producción y maquinaria pesada con logística especializada.",
     "description": "Logística a gran escala para el traslado seguro de maquinaria pesada, plantas y galpones. Diseñamos planes coordinados para garantizar cero tiempos de inactividad, con camiones de gran capacidad y cobertura total de seguro.",
-    "icon": "Factory"
+    "icon": "Factory",
+    "num": 2,
+    "hudTagEn": "[SPEC_02 // INDUSTRIAL_RELOCATION — ZERO_DOWNTIME_PLAN // FULL_COVERAGE]",
+    "hudTagEs": "[ESPEC_02 // LOGISTICA_DE_MAQUINARIA — PLAN_CERO_INACTIVIDAD // COBERTURA_TOTAL]"
   },
   {
     "id": "mudanzas-oficinas",
@@ -21,7 +27,10 @@
     "category": "Corporativo",
     "shortDesc": "Reubicación corporativa eficiente: mobiliario, servidores, puestos de trabajo y archivos.",
     "description": "Traslado corporativo planificado para minimizar el tiempo fuera de servicio de su empresa. Incluye arme y desarme de puestos, protección especial para IT y servidores, inventario detallado y atención en horarios nocturnos o fines de semana.",
-    "icon": "Building2"
+    "icon": "Building2",
+    "num": 3,
+    "hudTagEn": "[SPEC_03 // CORPORATE_MOVING — IT_SERVER_PROTECTION // 24_7_SHIFT]",
+    "hudTagEs": "[ESPEC_03 // TRASLADO_CORPORATIVO — PROTECCION_IT_Y_SERVIDORES // TURNO_24_7]"
   },
   {
     "id": "mudanzas-familiares",
@@ -29,6 +38,9 @@
     "category": "Residencial",
     "shortDesc": "Traslados residenciales seguros y confiables con personal cuidadoso y unidades equipadas.",
     "description": "Traslado de hogar con embalaje profesional de muebles y vajilla, personal capacitado de confianza y flota moderna. Operamos con camiones cerrados equipados con mantas de protección y puntualidad garantizada.",
-    "icon": "Home"
+    "icon": "Home",
+    "num": 4,
+    "hudTagEn": "[SPEC_04 // RESIDENTIAL_LOGISTICS — PROTECTIVE_PACKING // CLOSED_FLEET]",
+    "hudTagEs": "[ESPEC_04 // LOGISTICA_RESIDENCIAL — EMBALAJE_PROTECTOR // FLOTA_CERRADA]"
   }
 ]

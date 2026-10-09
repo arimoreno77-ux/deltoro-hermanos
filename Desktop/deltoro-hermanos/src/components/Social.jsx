@@ -1,8 +1,70 @@
+import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Mail, MapPin, Clock } from 'lucide-react';
 
+const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/-[]&";
+
+function decipherElement(el, targetText, duration = 400) {
+  if (!el) return;
+  const startTime = performance.now();
+  const len = targetText.length;
+
+  const update = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+
+    let result = "";
+    for (let i = 0; i < len; i++) {
+      const charTargetProgress = (i + 1) / len;
+      const threshold = charTargetProgress * 0.85;
+
+      if (progress === 1 || ease >= 1 || (progress > threshold && Math.random() < (progress - threshold) / (1 - threshold))) {
+        result += targetText[i];
+      } else {
+        result += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+
+    el.textContent = result;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = targetText;
+    }
+  };
+
+  requestAnimationFrame(update);
+}
+
 export default function Social() {
+  const [isEnglish, setIsEnglish] = useState(true);
+  const upperRef = useRef(null);
+  const lowerRef = useRef(null);
+
+  // 12-second language toggle interval
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsEnglish((prev) => !prev);
+    }, 12000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Trigger text decipher on language change
+  useEffect(() => {
+    const upperTarget = isEnglish
+      ? "[DELTORO_HERMANOS // DIRECT_CHANNELS_V1.0 — CONNECT_&_QUOTE]"
+      : "[DELTORO_HERMANOS // CANALES_DIRECTOS_V1.0 — CONTACTO_Y_COTIZACION]";
+    decipherElement(upperRef.current, upperTarget);
+
+    const lowerTarget = isEnglish
+      ? "[COMMUNICATION_HUB // INSTANT_SUPPORT — SOCIAL_NETWORKS_&_LOCATION]"
+      : "[CENTRO_DE_COMUNICACION // ATENCION_INMEDIATA — REDES_Y_UBICACION]";
+    decipherElement(lowerRef.current, lowerTarget);
+  }, [isEnglish]);
+
   return (
-    <section id="contacto" className="relative py-32 sm:py-40 bg-[#111827] border-b border-gray-800 overflow-hidden">
+    <section id="contacto" className="relative py-32 sm:py-40 bg-[#0A0A0A] border-b border-gray-800 overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden z-0"
@@ -15,37 +77,26 @@ export default function Social() {
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D7B86C]/30 to-transparent"></div>
       </div>
 
-      {/* Top-Left HUD */}
-      <div className="absolute top-4 left-4 sm:left-6 flex flex-col gap-0.5 border-t-2 border-l-2 border-[#D7B86C]/40 p-2 pointer-events-none z-20">
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[COMM_LINK: ONLINE_24/7]</span>
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[LATENCY: 12MS_DIRECT]</span>
-      </div>
-
-      {/* Top-Right HUD */}
-      <div className="absolute top-4 right-4 sm:right-6 flex flex-col gap-0.5 border-t-2 border-r-2 border-[#D7B86C]/40 p-2 text-right pointer-events-none z-20">
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[SECURE_CHANNEL: ENCRYPTED]</span>
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[NODE_BA: ARG_HQ]</span>
-      </div>
-
-      {/* Bottom-Left HUD */}
-      <div className="absolute bottom-4 left-4 sm:left-6 flex flex-col gap-0.5 border-b-2 border-l-2 border-[#D7B86C]/40 p-2 pointer-events-none z-20">
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[RESPONSE_TIME: IMMEDIATE]</span>
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[AVAILABILITY: 24/7_EMERGENCY]</span>
-      </div>
-
-      {/* Bottom-Right HUD */}
-      <div className="absolute bottom-4 right-4 sm:right-6 flex flex-col gap-0.5 border-b-2 border-r-2 border-[#D7B86C]/40 p-2 text-right pointer-events-none z-20">
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[DISPATCH: BUENOS_AIRES]</span>
-        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[STATUS: READY_TO_LIFT]</span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div ref={upperRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mb-2">
+            {isEnglish
+              ? "[DELTORO_HERMANOS // DIRECT_CHANNELS_V1.0 — CONNECT_&_QUOTE]"
+              : "[DELTORO_HERMANOS // CANALES_DIRECTOS_V1.0 — CONTACTO_Y_COTIZACION]"}
+          </div>
+
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight">
             Contacto y <span className="text-[#D7B86C]">Redes Sociales</span>
           </h2>
+
+          <div ref={lowerRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mt-2 mb-4">
+            {isEnglish
+              ? "[COMMUNICATION_HUB // INSTANT_SUPPORT — SOCIAL_NETWORKS_&_LOCATION]"
+              : "[CENTRO_DE_COMUNICACION // ATENCION_INMEDIATA — REDES_Y_UBICACION]"}
+          </div>
+
           <p className="mt-4 text-gray-300 text-base sm:text-lg font-sans">
             Conectá con nosotros en nuestras redes sociales para ver trabajos en tiempo real o comunicate por nuestros canales oficiales.
           </p>
@@ -129,12 +180,6 @@ export default function Social() {
                 </a>
               </div>
             </div>
-
-            <div className="mt-8 pt-6 border-t border-gray-800 text-center font-mono">
-              <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase block pt-2">
-                [DELTORO_HERMANOS — REDES HUD]
-              </span>
-            </div>
           </div>
 
           {/* Column 2: Contact Info */}
@@ -181,12 +226,6 @@ export default function Social() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-gray-800 text-center">
-              <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase pt-2 block pointer-events-none">
-                [DELTORO_HERMANOS — CONTACTOS HUD]
-              </span>
             </div>
 
           </div>
