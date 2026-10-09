@@ -1,11 +1,44 @@
-import { ExternalLink, Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
+import { ExternalLink, Mail, MapPin, Clock } from 'lucide-react';
 
 export default function Social() {
-  const whatsappNumber = "5491100000000";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola%20Deltoro%20Hermanos,%20me%20gustaría%20realizar%20una%20consulta.`;
-
   return (
-    <section id="contacto" className="py-24 bg-[#111827] border-b border-gray-800 relative">
+    <section id="contacto" className="relative py-32 sm:py-40 bg-[#111827] border-b border-gray-800 overflow-hidden">
+      {/* Background Blueprint Technical Grid with Radial Fade Mask */}
+      <div 
+        className="absolute inset-0 pointer-events-none overflow-hidden z-0"
+        style={{
+          maskImage: 'radial-gradient(circle at 30% 70%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 20%, transparent 45%)',
+          WebkitMaskImage: 'radial-gradient(circle at 30% 70%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 20%, transparent 45%)'
+        }}
+      >
+        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#D7B86C_1px,transparent_1px),linear-gradient(to_bottom,#D7B86C_1px,transparent_1px)] bg-[size:56px_56px]"></div>
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D7B86C]/30 to-transparent"></div>
+      </div>
+
+      {/* Top-Left HUD */}
+      <div className="absolute top-4 left-4 sm:left-6 flex flex-col gap-0.5 border-t-2 border-l-2 border-[#D7B86C]/40 p-2 pointer-events-none z-20">
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[COMM_LINK: ONLINE_24/7]</span>
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[LATENCY: 12MS_DIRECT]</span>
+      </div>
+
+      {/* Top-Right HUD */}
+      <div className="absolute top-4 right-4 sm:right-6 flex flex-col gap-0.5 border-t-2 border-r-2 border-[#D7B86C]/40 p-2 text-right pointer-events-none z-20">
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[SECURE_CHANNEL: ENCRYPTED]</span>
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[NODE_BA: ARG_HQ]</span>
+      </div>
+
+      {/* Bottom-Left HUD */}
+      <div className="absolute bottom-4 left-4 sm:left-6 flex flex-col gap-0.5 border-b-2 border-l-2 border-[#D7B86C]/40 p-2 pointer-events-none z-20">
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[RESPONSE_TIME: IMMEDIATE]</span>
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[AVAILABILITY: 24/7_EMERGENCY]</span>
+      </div>
+
+      {/* Bottom-Right HUD */}
+      <div className="absolute bottom-4 right-4 sm:right-6 flex flex-col gap-0.5 border-b-2 border-r-2 border-[#D7B86C]/40 p-2 text-right pointer-events-none z-20">
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[DISPATCH: BUENOS_AIRES]</span>
+        <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase">[STATUS: READY_TO_LIFT]</span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -18,10 +51,11 @@ export default function Social() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* 2 Columns Floating Layout (No card boxes around items or outer container) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto items-start relative z-10">
           
-          {/* Social Proof & Profiles Card (HUD Flat Style) */}
-          <div className="lg:col-span-6 bg-[#0A0A0A] border border-gray-800 rounded-2xl p-8 shadow-xl flex flex-col justify-between">
+          {/* Column 1: Social Profiles */}
+          <div className="flex flex-col justify-between h-full">
             <div>
               <h3 className="font-display font-bold text-2xl text-white mb-6">
                 Seguinos en Redes
@@ -33,15 +67,15 @@ export default function Social() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between py-4 border-b border-gray-800 hover:border-[#045848] transition-colors group"
+                  className="flex items-center justify-between py-4 pr-2 border-b border-gray-800 relative group overflow-visible"
                 >
+                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D7B86C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left z-10"></div>
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#045848]/20 text-[#D7B86C] rounded-lg flex items-center justify-center border border-[#045848]">
+                    <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center">
                       <svg className="w-5 h-5 text-[#D7B86C]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </div>
                     <div>
                       <h4 className="font-bold text-white text-base font-display">Facebook Oficial</h4>
-                      <p className="text-xs text-gray-400 font-sans">Galería de trabajos y novedades diarias</p>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-[#D7B86C] uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -55,15 +89,15 @@ export default function Social() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between py-4 border-b border-gray-800 hover:border-[#045848] transition-colors group"
+                  className="flex items-center justify-between py-4 pr-2 border-b border-gray-800 relative group overflow-visible"
                 >
+                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D7B86C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left z-10"></div>
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#045848]/20 text-[#D7B86C] rounded-lg flex items-center justify-center border border-[#045848]">
+                    <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center">
                       <svg className="w-5 h-5 text-[#D7B86C]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.225 0z"/></svg>
                     </div>
                     <div>
                       <h4 className="font-bold text-white text-base font-display">LinkedIn Corporativo</h4>
-                      <p className="text-xs text-gray-400 font-sans">Servicios industriales y corporativos</p>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-[#D7B86C] uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -77,15 +111,15 @@ export default function Social() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between py-4 hover:border-[#045848] transition-colors group"
+                  className="flex items-center justify-between py-4 pr-2 border-b border-gray-800 relative group overflow-visible"
                 >
+                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D7B86C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left z-10"></div>
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#045848]/20 text-[#D7B86C] rounded-lg flex items-center justify-center border border-[#045848]">
+                    <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center">
                       <svg className="w-5 h-5 text-[#D7B86C]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </div>
                     <div>
                       <h4 className="font-bold text-white text-base font-display">Instagram</h4>
-                      <p className="text-xs text-gray-400 font-sans">Reels de maniobras y fotos de flota</p>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-[#D7B86C] uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -97,36 +131,24 @@ export default function Social() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-gray-800 text-center font-mono">
-              <span className="text-xs text-gray-400 uppercase tracking-widest">
+              <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase block pt-2">
                 [DELTORO_HERMANOS — REDES HUD]
               </span>
             </div>
           </div>
 
-          {/* Institutional Data Card */}
-          <div className="lg:col-span-6 bg-[#0A0A0A] border border-[#045848] rounded-2xl p-8 shadow-xl flex flex-col justify-between shadow-[0_0_25px_rgba(4,88,72,0.2)]">
+          {/* Column 2: Contact Info */}
+          <div className="flex flex-col justify-between h-full border-t md:border-t-0 md:border-l border-gray-800 pt-8 md:pt-0 md:pl-12">
             <div>
               <h3 className="font-display font-bold text-2xl text-white mb-6">
                 Datos de Contacto
               </h3>
 
               <div className="space-y-6 font-mono text-xs">
-                {/* Phone / WhatsApp */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#045848]/30 text-[#D7B86C] rounded-xl flex items-center justify-center border border-[#045848] shrink-0">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-white text-base">Teléfono / WhatsApp</h4>
-                    <p className="text-sm text-gray-300 mt-0.5">+54 9 11 0000-0000</p>
-                    <p className="text-xs text-gray-400 mt-0.5 font-sans">Atención comercial inmediata</p>
-                  </div>
-                </div>
-
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#045848]/30 text-[#D7B86C] rounded-xl flex items-center justify-center border border-[#045848] shrink-0">
-                    <Mail className="w-6 h-6" />
+                  <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-white text-base">Correo Electrónico</h4>
@@ -137,8 +159,8 @@ export default function Social() {
 
                 {/* Location */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#045848]/30 text-[#D7B86C] rounded-xl flex items-center justify-center border border-[#045848] shrink-0">
-                    <MapPin className="w-6 h-6" />
+                  <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-white text-base">Ubicación Operativa</h4>
@@ -149,8 +171,8 @@ export default function Social() {
 
                 {/* Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#045848]/30 text-[#D7B86C] rounded-xl flex items-center justify-center border border-[#045848] shrink-0">
-                    <Clock className="w-6 h-6" />
+                  <div className="w-10 h-10 text-[#D7B86C] flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-white text-base">Horario de Atención</h4>
@@ -161,16 +183,10 @@ export default function Social() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-800">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-emerald-600 text-white font-mono font-bold py-3.5 px-6 rounded-xl shadow-lg transition-colors uppercase tracking-wide text-xs"
-              >
-                <MessageSquare className="w-5 h-5" />
-                <span>Iniciar Chat de WhatsApp</span>
-              </a>
+            <div className="mt-8 pt-6 border-t border-gray-800 text-center">
+              <span className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase pt-2 block pointer-events-none">
+                [DELTORO_HERMANOS — CONTACTOS HUD]
+              </span>
             </div>
 
           </div>

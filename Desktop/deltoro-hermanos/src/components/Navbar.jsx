@@ -57,16 +57,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-2 font-mono text-sm">
-            <a href="#servicios" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] hover:bg-gray-800/40 rounded-lg transition-all">
+            <a href="#servicios" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] transition-all">
               [01. SERVICIOS]
             </a>
-            <a href="#trayectoria" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] hover:bg-gray-800/40 rounded-lg transition-all">
+            <a href="#trayectoria" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] transition-all">
               [02. TRAYECTORIA]
             </a>
-            <a href="#contacto" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] hover:bg-gray-800/40 rounded-lg transition-all">
+            <a href="#contacto" className="px-3.5 py-2 text-gray-300 hover:text-[#D7B86C] transition-all">
               [03. CONTACTO]
             </a>
-            <div className="px-3.5 py-2 text-gray-300 rounded-lg">
+            <div className="px-3.5 py-2 text-gray-300">
               {formatDateString(time)}
             </div>
           </nav>
@@ -90,21 +90,21 @@ export default function Navbar() {
           <a
             href="#servicios"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 rounded-lg hover:bg-gray-800/40 border-b border-gray-800/50 transition-colors"
+            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 border-b border-gray-800/50 transition-colors"
           >
             [01. SERVICIOS]
           </a>
           <a
             href="#trayectoria"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 rounded-lg hover:bg-gray-800/40 border-b border-gray-800/50 transition-colors"
+            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 border-b border-gray-800/50 transition-colors"
           >
             [02. TRAYECTORIA]
           </a>
           <a
             href="#contacto"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 rounded-lg hover:bg-gray-800/40 border-b border-gray-800/50 transition-colors"
+            className="block text-gray-200 hover:text-[#D7B86C] px-3.5 py-2 border-b border-gray-800/50 transition-colors"
           >
             [03. CONTACTO]
           </a>
