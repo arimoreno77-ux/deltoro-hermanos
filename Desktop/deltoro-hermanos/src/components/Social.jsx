@@ -39,6 +39,7 @@ function decipherElement(el, targetText, duration = 400) {
 
 export default function Social() {
   const [isEnglish, setIsEnglish] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const upperRef = useRef(null);
   const lowerRef = useRef(null);
 
@@ -48,6 +49,26 @@ export default function Social() {
       setIsEnglish((prev) => !prev);
     }, 12000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Native scroll listener for one-shot hook tilt & translate near bottom (no reversion when scrolling up)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollTotal <= 0) return;
+      const currentScroll = window.scrollY;
+      const distanceToBottom = scrollTotal - currentScroll;
+      
+      const triggerDistance = 350;
+      if (distanceToBottom <= triggerDistance) {
+        const progress = Math.min(1, Math.max(0, (triggerDistance - distanceToBottom) / triggerDistance));
+        setScrollProgress((prev) => Math.max(prev, progress));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Trigger text decipher on language change
@@ -64,7 +85,7 @@ export default function Social() {
   }, [isEnglish]);
 
   return (
-    <section id="contacto" className="relative py-32 sm:py-40 bg-[#0A0A0A] border-b border-gray-800 overflow-hidden">
+    <section id="contacto" className="relative pt-32 sm:pt-40 pb-[36px] sm:pb-[52px] bg-[#0A0A0A] overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden z-0"
@@ -75,6 +96,36 @@ export default function Social() {
       >
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#D7B86C_1px,transparent_1px),linear-gradient(to_bottom,#D7B86C_1px,transparent_1px)] bg-[size:56px_56px]"></div>
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D7B86C]/30 to-transparent"></div>
+      </div>
+
+      {/* HUD Corner Framing Lines & Technical Readouts - Top-Left */}
+      <div className="absolute top-6 left-6 hidden lg:block p-3 border-t-2 border-l-2 border-[#D7B86C]/40 pointer-events-none z-20">
+        <div className="font-mono text-[11px] text-[#D7B86C]/80 tracking-widest uppercase space-y-0.5">
+          <div>[SYS.CONTACT_NODES]</div>
+          <div>[NET.SOCIAL_FEED]</div>
+        </div>
+      </div>
+
+      {/* HUD Corner Framing Lines & Technical Readouts - Top-Right */}
+      <div className="absolute top-6 right-6 hidden lg:block p-3 border-t-2 border-r-2 border-[#D7B86C]/40 pointer-events-none z-20 text-right">
+        <div className="font-mono text-[11px] text-[#D7B86C]/80 tracking-widest uppercase space-y-0.5">
+          <div>[COMM_LINK: ONLINE_24/7]</div>
+          <div>[ARG_HQ_DISPATCH]</div>
+        </div>
+      </div>
+
+      {/* Background Hook Watermark Accent (imagengancho-removebg-preview.png) with scroll tilt & translate animation */}
+      <div className="absolute right-[-8%] sm:right-[-10%] bottom-2 sm:bottom-4 pointer-events-none z-0 opacity-25 sm:opacity-30 overflow-hidden">
+        <img 
+          src="./images/imagengancho-removebg-preview.png" 
+          alt="Deltoro Hermanos Hook Accent" 
+          className="max-h-[275px] sm:max-h-[450px] lg:max-h-[550px] w-auto object-contain select-none"
+          style={{
+            filter: 'sepia(100%) hue-rotate(5deg) saturate(220%) brightness(85%)',
+            transform: `translateX(${-40 * scrollProgress}px) rotate(${-24 * scrollProgress}deg)`,
+            transition: 'transform 0.15s ease-out',
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

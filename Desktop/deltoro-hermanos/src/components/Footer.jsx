@@ -1,16 +1,52 @@
+import { useState, useEffect, useRef } from 'react';
 import { Truck, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Native scroll listener for one-shot hook tilt & translate near bottom (no reversion when scrolling up)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollTotal <= 0) return;
+      const currentScroll = window.scrollY;
+      const distanceToBottom = scrollTotal - currentScroll;
+      
+      const triggerDistance = 350;
+      if (distanceToBottom <= triggerDistance) {
+        const progress = Math.min(1, Math.max(0, (triggerDistance - distanceToBottom) / triggerDistance));
+        setScrollProgress((prev) => Math.max(prev, progress));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-[#0A0A0A] border-t border-gray-800 text-zinc-300 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+    <footer className="bg-[#0A0A0A] border-t border-gray-800 text-zinc-300 pt-12 pb-6 sm:pb-8 relative overflow-hidden">
+      {/* Background Hook Watermark Accent (imagengancho-removebg-preview.png) with scroll tilt & translate animation */}
+      <div className="absolute right-[-8%] sm:right-[-10%] bottom-8 sm:bottom-12 pointer-events-none z-0 opacity-25 sm:opacity-30 overflow-hidden">
+        <img 
+          src="./images/imagengancho-removebg-preview.png" 
+          alt="Deltoro Hermanos Hook Accent" 
+          className="max-h-[275px] sm:max-h-[450px] lg:max-h-[550px] w-auto object-contain select-none"
+          style={{
+            filter: 'sepia(100%) hue-rotate(5deg) saturate(220%) brightness(85%)',
+            transform: `translateX(${-40 * scrollProgress}px) rotate(${-10 * scrollProgress}deg)`,
+            transition: 'transform 0.15s ease-out',
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
           
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
@@ -61,7 +97,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 text-xs font-mono">
+        <div className="flex flex-col sm:flex-row items-center justify-between pt-6 gap-4 text-xs font-mono">
           <p className="text-zinc-400">© {currentYear} Deltoro Hermanos. Todos los derechos reservados.</p>
           
           <div className="flex flex-col sm:flex-row items-center gap-6">

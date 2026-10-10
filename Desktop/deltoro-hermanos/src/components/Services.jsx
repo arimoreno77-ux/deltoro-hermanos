@@ -52,8 +52,9 @@ export default function Services() {
   const sectionRef = useRef(null);
   const hasAnimated = useRef(false);
 
-  // Ref for header decipher target
+  // Ref for header and lower microtext decipher targets
   const headerRef = useRef(null);
+  const lowerRef = useRef(null);
 
   // 12-second language toggle interval for header
   useEffect(() => {
@@ -63,12 +64,17 @@ export default function Services() {
     return () => clearInterval(timer);
   }, []);
 
-  // Trigger text decipher on language change for header
+  // Trigger text decipher on language change for header and lower microtext
   useEffect(() => {
     const headerTarget = isEnglish
       ? "[DELTORO_HERMANOS // SPECIALIZED_SERVICES_V1.0 — HEAVY_LIFT_LOGISTICS]"
       : "[DELTORO_HERMANOS // SERVICIOS_ESPECIALIZADOS_V1.0 — LOGISTICA_DE_IZAJE]";
     decipherElement(headerRef.current, headerTarget);
+
+    const lowerTarget = isEnglish
+      ? "[ACTIVE_MODULES // 4_SERVICES_LOADED — CERTIFIED_SPECS]"
+      : "[MODULOS_ACTIVOS // 4_SERVICIOS_CARGADOS — ESPEC_CERTIFICADAS]";
+    decipherElement(lowerRef.current, lowerTarget);
   }, [isEnglish]);
 
   // IntersectionObserver for count-up animation
@@ -163,8 +169,10 @@ export default function Services() {
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight">
             Servicios <span className="text-[#D7B86C]">Especializados</span>
           </h2>
-          <div className="mt-2 font-mono text-xs text-[#D7B86C]/60">
-            [ACTIVE_MODULES: {countVal}/4 LOADED]
+          <div ref={lowerRef} className="font-mono text-[10px] sm:text-[11px] text-[#D7B86C]/80 tracking-widest uppercase mt-2">
+            {isEnglish
+              ? "[ACTIVE_MODULES // 4_SERVICES_LOADED — CERTIFIED_SPECS]"
+              : "[MODULOS_ACTIVOS // 4_SERVICIOS_CARGADOS — ESPEC_CERTIFICADAS]"}
           </div>
         </div>
 
@@ -183,13 +191,15 @@ export default function Services() {
                   {iconWatermarkMap[service.icon] || <Truck className="w-20 h-20 text-[#045848]" />}
                 </div>
 
-                <div className="relative z-10">
+                <div className="relative z-10 pr-12">
                   {/* Title & Divider Bar & Description */}
-                  <h3 className="font-display font-black text-base sm:text-lg text-white mb-1 leading-tight pr-12">
-                    {service.title}
-                  </h3>
-                  <div className="w-12 h-[2px] bg-[#045848] group-hover:w-[58%] group-hover:bg-[#D7B86C] transition-all duration-500 ease-out my-2"></div>
-                  <p className="text-gray-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans">
+                  <div className="inline-block relative">
+                    <h3 className="font-display font-black text-base sm:text-lg text-white leading-tight">
+                      {service.title}
+                    </h3>
+                    <div className="mt-2 w-full h-[2px] bg-[#D7B86C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left"></div>
+                  </div>
+                  <p className="text-gray-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans mt-3">
                     {service.description}
                   </p>
                 </div>
