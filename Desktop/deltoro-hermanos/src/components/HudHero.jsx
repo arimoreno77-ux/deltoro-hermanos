@@ -20,6 +20,8 @@ export default function HudHero() {
 
   // Direct, butter-smooth proportional rotation for crane boom
   const boomAngle = mousePos.x * 22 - mousePos.y * 14;
+  const lat = (34.6037 + mousePos.y * 0.05).toFixed(4);
+  const lon = (58.3816 + mousePos.x * 0.05).toFixed(4);
 
   return (
     <section 
@@ -29,7 +31,7 @@ export default function HudHero() {
       {/* HUD Corner Technical Readouts */}
       <div className="absolute top-6 left-6 hidden lg:block font-mono text-[11px] text-[#D7B86C]/80 tracking-widest uppercase pointer-events-none z-20">
         <div>[SYS.CORE: DELTORO_HERMANOS_HUD]</div>
-        <div>[LAT: 34.6037° S, LON: 58.3816° W]</div>
+        <div>[LAT: {lat}° S, LON: {lon}° W]</div>
         <div>[STATUS: OPTIMAL_GREEN]</div>
       </div>
 
