@@ -90,10 +90,10 @@ export default function Social() {
     <section id="contacto" className="relative pt-32 sm:pt-40 pb-[36px] sm:pb-[52px] bg-[#0A0A0A] overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
-        className="absolute inset-0 pointer-events-none overflow-hidden z-0"
+        className="absolute right-0 w-full md:w-1/2 inset-y-0 pointer-events-none overflow-hidden z-0"
         style={{
-          maskImage: 'radial-gradient(circle at 30% 70%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 20%, transparent 45%)',
-          WebkitMaskImage: 'radial-gradient(circle at 30% 70%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 20%, transparent 45%)'
+          maskImage: 'radial-gradient(circle at 70% 60%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 35%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(circle at 70% 60%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 35%, transparent 70%)'
         }}
       >
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#D7B86C_1px,transparent_1px),linear-gradient(to_bottom,#D7B86C_1px,transparent_1px)] bg-[size:56px_56px]"></div>
