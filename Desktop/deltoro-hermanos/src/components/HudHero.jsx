@@ -48,8 +48,9 @@ export default function HudHero() {
           
           {/* Brutalist Giant Single-Line Title */}
           <div className="overflow-visible w-full">
-            <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-[7.5vw] tracking-tighter uppercase leading-none whitespace-nowrap text-white select-none">
-              PLANIFICACIÓN. <span className="text-[#D7B86C] drop-shadow-[0_0_40px_rgba(215,184,108,0.5)]">IZAJE.</span> INGENIERÍA.
+            <h1 className="font-display font-black text-3xl sm:text-6xl lg:text-[7.5vw] tracking-tighter uppercase leading-tight sm:leading-none text-white select-none">
+              PLANIFICACIÓN. <br className="block sm:hidden" />
+              <span className="text-[#D7B86C] drop-shadow-[0_0_40px_rgba(215,184,108,0.5)]">IZAJE.</span> INGENIERÍA.
             </h1>
           </div>
 
