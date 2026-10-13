@@ -76,8 +76,8 @@ export default function HudHero() {
 
         </div>
 
-        {/* Right Column: Telescopic Crane Boom overlapping with brutalist title */}
-        <div className="lg:col-span-4 relative h-96 flex items-center justify-end overflow-visible pointer-events-none -ml-16 lg:-ml-32 z-30 animate-crane-slide-up">
+        {/* Right Column: Telescopic Crane Boom overlapping with brutalist title (Hidden on mobile, visible on lg+ screens) */}
+        <div className="hidden lg:flex lg:col-span-4 relative h-96 items-center justify-end overflow-visible pointer-events-none -ml-16 lg:-ml-32 z-30 animate-crane-slide-up">
           
           {/* SVG Telescopic Boom anchored off-screen bottom-right */}
           <div className="absolute -bottom-20 -right-20 w-[600px] h-[600px] flex items-end justify-end pointer-events-none">
