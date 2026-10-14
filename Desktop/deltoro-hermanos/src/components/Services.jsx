@@ -114,7 +114,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="servicios" className="py-24 sm:py-32 bg-[#0A0A0A] relative border-y border-gray-800 overflow-hidden">
+    <section ref={sectionRef} id="servicios" className="py-12 sm:py-32 bg-[#0A0A0A] relative border-y border-gray-800 overflow-hidden">
       {/* Background Blueprint Technical Grid with Radial Fade Mask */}
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden z-0"

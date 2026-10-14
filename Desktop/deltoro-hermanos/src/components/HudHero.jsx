@@ -76,7 +76,7 @@ export default function HudHero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[92vh] flex items-center justify-center pt-6 pb-20 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-gray-800"
+      className="relative min-h-[92vh] flex items-center justify-center pt-6 pb-10 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-gray-800"
     >
       {/* HUD Corner Technical Readouts */}
       <div className="absolute top-6 left-6 hidden lg:block font-mono text-[11px] text-[#D7B86C]/80 tracking-widest uppercase pointer-events-none z-20">
